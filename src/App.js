@@ -5,7 +5,7 @@ import Toggle from './Components/Toggle';
 import ToggleF from './Components/ToggleF';
 import List from './Components/List';
 import UserList from './Components/UserList';
-import React from 'react';
+import NoticeList from './Components/NoticeList';
 
 function App() {
   const numbers = [1, 2, 3, 4, 5];
@@ -19,6 +19,7 @@ function App() {
       <ToggleF></ToggleF>
       <List numbers={numbers}></List>
       <UserList users={users}></UserList>
+      <NoticeList></NoticeList>
     </div>
   );
 }
