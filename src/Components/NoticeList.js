@@ -1,3 +1,4 @@
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@material-ui/core";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -26,12 +27,12 @@ function NoticeList() {
 
     function tableDatas(notices) {
         const datas = notices.map((notice) => 
-            <tr key={notice.no}>
-                <td>{notice.no}</td>
-                <td>{notice.title}</td>
-                <td>{notice.date}</td>
-                <td>{notice.views}</td>
-            </tr>
+            <TableRow key={notice.no}>
+                <TableCell align="center">{notice.no}</TableCell>
+                <TableCell align="left">{notice.title}</TableCell>
+                <TableCell align="right">{notice.date}</TableCell>
+                <TableCell align="right">{notice.views}</TableCell>
+            </TableRow>
         );
         return datas;
     }
@@ -40,19 +41,21 @@ function NoticeList() {
     if (error) return <p>Error!</p>;
     if (!notices) return null;
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>NO</th>
-                    <th>제목</th>
-                    <th>날짜</th>
-                    <th>조회수</th>
-                </tr>
-            </thead>
-            <tbody>
-                {tableDatas(notices)}
-            </tbody>
-        </table>
+        <TableContainer component={Paper}>
+            <Table>
+                <TableHead>
+                    <TableRow>
+                        <TableCell align="center">NO</TableCell>
+                        <TableCell align="center">제목</TableCell>
+                        <TableCell align="right">날짜</TableCell>
+                        <TableCell align="right">조회수</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {tableDatas(notices)}
+                </TableBody>
+            </Table>
+        </TableContainer>  
     );
 }
 
