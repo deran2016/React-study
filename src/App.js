@@ -6,6 +6,7 @@ import ToggleF from './Components/ToggleF';
 import List from './Components/List';
 import UserList from './Components/UserList';
 import NoticeList from './Components/NoticeList';
+import '@fontsource/roboto';
 
 function App() {
   const numbers = [1, 2, 3, 4, 5];
